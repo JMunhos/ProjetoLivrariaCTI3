@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geraÃ§Ã£o: 17-Set-2022 Ã s 01:41
--- VersÃ£o do servidor: 10.4.21-MariaDB
--- versÃ£o do PHP: 7.3.31
+-- Tempo de geração: 28-Set-2022 às 03:22
+-- Versão do servidor: 10.4.19-MariaDB
+-- versão do PHP: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,13 +35,24 @@ CREATE TABLE `editora` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `genÃªro`
+-- Estrutura da tabela `genêro`
 --
 
-CREATE TABLE `genÃªro` (
-  `codigo_genÃªro` int(11) NOT NULL,
-  `nome_genÃªro` varchar(120) DEFAULT NULL
+CREATE TABLE `genêro` (
+  `codigo_genêro` int(11) NOT NULL,
+  `nome_genêro` varchar(120) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `genêro`
+--
+
+INSERT INTO `genêro` (`codigo_genêro`, `nome_genêro`) VALUES
+(1, 'Biografias'),
+(2, 'Literatura'),
+(3, 'Autoajuda'),
+(4, 'Didático'),
+(5, 'Quadrinhos');
 
 -- --------------------------------------------------------
 
@@ -63,42 +74,42 @@ CREATE TABLE `livros` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `subgenÃªro`
+-- Estrutura da tabela `subgenêro`
 --
 
-CREATE TABLE `subgenÃªro` (
-  `codigo_subgenÃªro` int(11) NOT NULL,
-  `nome_subgenÃªro` varchar(120) DEFAULT NULL,
+CREATE TABLE `subgenêro` (
+  `codigo_subgenêro` int(11) NOT NULL,
+  `nome_subgenêro` varchar(120) DEFAULT NULL,
   `cod_genero` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Ãndices para tabelas despejadas
+-- Índices para tabelas despejadas
 --
 
 --
--- Ãndices para tabela `editora`
+-- Índices para tabela `editora`
 --
 ALTER TABLE `editora`
   ADD PRIMARY KEY (`codigo_editora`);
 
 --
--- Ãndices para tabela `genÃªro`
+-- Índices para tabela `genêro`
 --
-ALTER TABLE `genÃªro`
-  ADD PRIMARY KEY (`codigo_genÃªro`);
+ALTER TABLE `genêro`
+  ADD PRIMARY KEY (`codigo_genêro`);
 
 --
--- Ãndices para tabela `livros`
+-- Índices para tabela `livros`
 --
 ALTER TABLE `livros`
   ADD PRIMARY KEY (`codigo_livro`);
 
 --
--- Ãndices para tabela `subgenÃªro`
+-- Índices para tabela `subgenêro`
 --
-ALTER TABLE `subgenÃªro`
-  ADD PRIMARY KEY (`codigo_subgenÃªro`);
+ALTER TABLE `subgenêro`
+  ADD PRIMARY KEY (`codigo_subgenêro`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -111,10 +122,10 @@ ALTER TABLE `editora`
   MODIFY `codigo_editora` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `genÃªro`
+-- AUTO_INCREMENT de tabela `genêro`
 --
-ALTER TABLE `genÃªro`
-  MODIFY `codigo_genÃªro` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `genêro`
+  MODIFY `codigo_genêro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `livros`
@@ -123,10 +134,10 @@ ALTER TABLE `livros`
   MODIFY `codigo_livro` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `subgenÃªro`
+-- AUTO_INCREMENT de tabela `subgenêro`
 --
-ALTER TABLE `subgenÃªro`
-  MODIFY `codigo_subgenÃªro` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `subgenêro`
+  MODIFY `codigo_subgenêro` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
